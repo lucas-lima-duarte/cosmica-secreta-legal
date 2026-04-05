@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok OAuth Callback - Cosmica Secreta</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #fafafa;
+            color: #333;
+        }
+        .container { text-align: center; padding: 24px; }
+        h1 { font-size: 24px; margin-bottom: 12px; }
+        p { font-size: 15px; color: #666; }
+        code { background: #e8e8e8; padding: 2px 8px; border-radius: 4px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Authorization Complete</h1>
+        <p>You can close this window. The authorization code has been received.</p>
+        <p id="code-display"></p>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        if (code) {
+            document.getElementById('code-display').innerHTML =
+                'Authorization code: <code>' + code.substring(0, 8) + '...</code>';
+        }
+    </script>
+</body>
+</html>
